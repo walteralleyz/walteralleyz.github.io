@@ -7,4 +7,5 @@ A simple single page portfolio
 Esse é um projeto feito com React e Sass. <br />
 É um portfólio com filtro de projetos - clicando na imagem da tecnologia, os projetos relacionados são carregados.
 
-- O formulário contate-me ainda não funciona (por preguiça, mas amanhã eu faço funcionar).
+- O formulário contate-me ainda não funciona (por preguiça, mas amanhã eu faço funcionar). -> funcionando
+- Os artigos do blog ainda não podem ser acessados, apenas possui integração com firebase.
