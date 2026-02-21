@@ -1,10 +1,5 @@
 # walteralleyz.github.io
-A simple single page portfolio
+Single Page Portfolio
 
-# Meu Portólio
-#### **Ou quase isso**
-
-Esse é um projeto feito com React e Sass. <br />
-É um portfólio com filtro de projetos - clicando na imagem da tecnologia, os projetos relacionados são carregados.
-
-- O formulário contate-me ainda não funciona (por preguiça, mas amanhã eu faço funcionar). -> funcionando
+### Content
+This is a simple project built to showcase my experience, the projects I’ve developed, and the problems I’ve solved throughout my career.
