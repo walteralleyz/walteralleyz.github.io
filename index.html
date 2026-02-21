@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter Alleyz Page</title>
+    <style>
+        div.banner {
+            min-height: 2vmax;
+            max-height: 2vmax;
+            background: 10vmax 10vmax #af1616;
+        }
+
+        nav {
+            min-width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        nav > .nav-section {
+            cursor: pointer;
+        }
+
+        nav > .nav-section:hover {
+            color: blue;
+            font-weight: 600;
+        }
+
+        aside {
+            width: 30px;
+        }
+
+        div > .page {
+            visibility: hidden;
+            max-width: 0;
+            max-height: 0;
+        }
+
+        div > .visible {
+            visibility: visible !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+        }
+
+        footer {
+            background-color: #13da7dc1;
+            padding: 5px 3px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <nav>
+        <div class="nav-section" onclick="changePage(this)" id="page1">HOME</div>
+        <div class="nav-section" onclick="changePage(this)" id="page2">ABOUT</div>
+        <div class="nav-section" onclick="changePage(this)" id="page3">CONTACT</div>
+    </nav>
+    <aside class="info">
+        <div id="profile_pic"></div>
+    </aside>
+    <div id="mutable">
+        <article class="page visible" id="article_page1">HOME</article>
+        <article class="page" id="article_page2">ABOUT</article>
+        <article class="page" id="article_page3">CONTACT</article>
+    </div>
+    <footer></footer>
+    <script>
+        function main() {
+            loadFooter();
+        }
+
+        function loadFooter() {
+            const yearP = document.createElement("u");
+            const footer = document.getElementsByTagName("footer");
+            footer[0].textContent = `Created with 💗 at some random Weekend by Walter `;
+            footer[0].appendChild(yearP);
+
+            yearP.textContent = new Date().getFullYear();
+        }
+
+        function changePage(el) {
+            const baseId = "article";
+            const page = document.getElementById(`${baseId}_${el.id}`);
+            const visible = document.getElementsByClassName("visible");
+
+            visible[0].classList.remove("visible");
+            page.classList.add("visible");
+        }
+
+        main();
+    </script>
+</body>
+</html>
