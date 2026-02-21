@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walter Alleyz Page</title>
     <style>
-        div.banner {
-            min-height: 2vmax;
-            max-height: 2vmax;
-            background: 10vmax 10vmax #af1616;
-        }
-
         nav {
             min-width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            background: 10vmax 10vmax #af1616;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         nav > .nav-section {
@@ -23,12 +20,8 @@
         }
 
         nav > .nav-section:hover {
-            color: blue;
-            font-weight: 600;
-        }
-
-        aside {
-            width: 30px;
+            color: #fff;
+            text-shadow: 1px 1px #000;
         }
 
         div > .page {
@@ -41,6 +34,41 @@
             visibility: visible !important;
             max-width: 100% !important;
             max-height: 100% !important;
+            padding: 15px 15px;
+        }
+
+        aside {
+            background-color: #000000a9;
+            padding: 15px 15px;
+        }
+
+        @media only screen and (min-width: 1200px) {
+            aside {
+                min-width: 15vw;
+                min-height: 80vh
+            }
+
+            .content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            div > .visible {
+                min-width: 80vw;
+            }
+        }
+
+        div#profile_pic {
+            display: flex;
+            justify-content: center;
+        }
+
+        div#profile_pic > img {
+            border-radius: 50px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: rgb(73, 201, 248);
         }
 
         footer {
@@ -48,6 +76,12 @@
             padding: 5px 3px;
             text-align: center;
             font-weight: bold;
+            text-shadow: 1px 1px #fff;
+        }
+
+        footer > pre {
+            color: #ffffff;
+            text-shadow: 1px 1px #000;
         }
     </style>
 </head>
@@ -55,16 +89,22 @@
     <div class="banner"></div>
     <nav>
         <div class="nav-section" onclick="changePage(this)" id="page1">HOME</div>
-        <div class="nav-section" onclick="changePage(this)" id="page2">ABOUT</div>
-        <div class="nav-section" onclick="changePage(this)" id="page3">CONTACT</div>
+        <div class="nav-section" onclick="changePage(this)" id="page2">PROJECTS</div>
+        <div class="nav-section" onclick="changePage(this)" id="page3">ABOUT</div>
+        <div class="nav-section" onclick="changePage(this)" id="page4">CONTACT</div>
     </nav>
-    <aside class="info">
-        <div id="profile_pic"></div>
-    </aside>
-    <div id="mutable">
-        <article class="page visible" id="article_page1">HOME</article>
-        <article class="page" id="article_page2">ABOUT</article>
-        <article class="page" id="article_page3">CONTACT</article>
+    <div class="content">
+        <aside class="info">
+            <div id="profile_pic">
+                <img src="./static/profile.jpeg" alt="profile_picture"/>
+            </div>
+        </aside>
+        <div id="mutable">
+            <article class="page visible" id="article_page1">HOME</article>
+            <article class="page" id="article_page2">PROJECTS</article>
+            <article class="page" id="article_page3">ABOUT</article>
+            <article class="page" id="article_page4">CONTACT</article>
+        </div>
     </div>
     <footer></footer>
     <script>
@@ -73,12 +113,12 @@
         }
 
         function loadFooter() {
-            const yearP = document.createElement("u");
-            const footer = document.getElementsByTagName("footer");
-            footer[0].textContent = `Created with 💗 at some random Weekend by Walter `;
-            footer[0].appendChild(yearP);
-
-            yearP.textContent = new Date().getFullYear();
+            document.getElementsByTagName("footer")[0].innerHTML = `
+                <p>
+                    Created with 💗 at some random Weekend by 
+                    <a href="https://linkedin.com/in/walteralleyz" target="_blank">Walter</a> 
+                    <pre>${new Date().getFullYear()}</pre>
+                </p>`;
         }
 
         function changePage(el) {
