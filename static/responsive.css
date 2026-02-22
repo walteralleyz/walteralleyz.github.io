@@ -27,5 +27,6 @@
 
     main {
         width: 100vw !important;
+        padding: 10px 10px;
     }
 }
