@@ -5,129 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walter Alleyz Page</title>
     <style>
-        nav {
-            min-width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            background: 10vmax 10vmax #af1616;
-            padding-top: 10px;
-            padding-bottom: 10px;
+        :root {
+            --bg: #0f172a;
+            --panel: #020617;
+            --border: rgba(148, 163, 184, 0.12);
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+            --primary: #38bdf8;
+            --accent: #facc15;
         }
 
-        nav > .nav-section {
-            cursor: pointer;
+        * {
+            box-sizing: border-box;
         }
 
-        nav > .nav-section:hover {
-            color: #fff;
-            text-shadow: 1px 1px #000;
-        }
-
-        div > .page {
-            visibility: hidden;
-            max-width: 0;
-            max-height: 0;
-        }
-
-        div > .visible {
-            visibility: visible !important;
-            max-width: 100% !important;
-            max-height: 100% !important;
-            padding: 15px 15px;
-        }
-
-        aside {
-            background-color: #000000a9;
-            padding: 15px 15px;
-        }
-
-        @media only screen and (min-width: 1200px) {
-            aside {
-                min-width: 15vw;
-                min-height: 80vh
-            }
-
-            .content {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
-            div > .visible {
-                min-width: 80vw;
-            }
-        }
-
-        div#profile_pic {
-            display: flex;
-            justify-content: center;
-        }
-
-        div#profile_pic > img {
-            border-radius: 50px;
-            border-style: solid;
-            border-width: 2px;
-            border-color: rgb(73, 201, 248);
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a;
         }
 
         footer {
             background-color: #13da7dc1;
-            padding: 5px 3px;
+            padding: 4px 4px;
             text-align: center;
             font-weight: bold;
-            text-shadow: 1px 1px #fff;
-        }
-
-        footer > pre {
-            color: #ffffff;
+            color: #fff;
             text-shadow: 1px 1px #000;
         }
+
+        footer > p {
+            padding: 0;
+            margin: 0;
+        }
     </style>
+    <link rel="stylesheet" href="./static/navbar.css">
+    <link rel="stylesheet" href="./static/sidebar.css">
+    <link rel="stylesheet" href="./static/pages.css">
+    <link rel="stylesheet" href="./static/responsive.css">
 </head>
 <body>
     <div class="banner"></div>
-    <nav>
-        <div class="nav-section" onclick="changePage(this)" id="page1">HOME</div>
-        <div class="nav-section" onclick="changePage(this)" id="page2">PROJECTS</div>
-        <div class="nav-section" onclick="changePage(this)" id="page3">ABOUT</div>
-        <div class="nav-section" onclick="changePage(this)" id="page4">CONTACT</div>
+    <nav class="navbar">
+        <div class="brand">🚀 Walter</div>
+
+        <div class="nav-links">
+            <a id="page1" href="#home" onclick="changePage(this)">🏠 HOME</a>
+            <a id="page2" href="#projects" onclick="changePage(this)">🧩 PROJECTS</a>
+            <a id="page3" href="#about" onclick="changePage(this)">👨‍💻 ABOUT ME</a>
+            <a id="page4" href="#contact" onclick="changePage(this)">📬 CONTACT ME</a>
+        </div>
     </nav>
     <div class="content">
-        <aside class="info">
+        <aside class="info sidebar">
             <div id="profile_pic">
                 <img src="./static/profile.jpeg" alt="profile_picture"/>
             </div>
+            <h1>🚀 Walter Santos</h1>
+            <div class="role">⭐ Software Backend Developer</div>
+
+            <div class="section">
+                <h2>🛠️ Stack</h2>
+                <ul>
+                    <li>☕ Java & Spring Boot</li>
+                    <li>☁️ AWS + Python</li>
+                    <li>📊 Grafana & CloudWatch</li>
+                    <li>🏗️ Terraform (Infra as Code)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📈 Experience</h2>
+                <ul>
+                    <li>🌱 1y - Frontend Trainee</li>
+                    <li>🔥 4y - Backend Developer (Zup)</li>
+                    <li>🌍 1y - Backend Developer International (KWAN)</li>
+                </ul>
+            </div>
+
+            <div class="section social">
+                <h2>🔗 Social</h2>
+                <p>💼 <a href="https://linkedin.com/in/walteralleyz" target="_blank">LinkedIn</a></p>
+            </div>
         </aside>
-        <div id="mutable">
-            <article class="page visible" id="article_page1">HOME</article>
-            <article class="page" id="article_page2">PROJECTS</article>
-            <article class="page" id="article_page3">ABOUT</article>
-            <article class="page" id="article_page4">CONTACT</article>
-        </div>
+        <main id="mutable">
+            <section class="page visible" id="article_page1">
+                <header>
+                    <h2>🏠 Home</h2>
+                    <p class="subtitle">Professional</p>
+                </header>
+
+                <article>
+                    <h3>⭐ Backend Developer focused on scale and reliability</h3>
+                    <p>
+                        Backend developer with solid experience in distributed systems,
+                        cloud infrastructure, and observability. I work with a strong focus
+                        on clean code, performance, and pragmatic technical decisions.
+                    </p>
+
+                    <ul>
+                        <li>🚀 Java & Spring Boot for robust backend services</li>
+                        <li>☁️ AWS with automation and monitoring in mind</li>
+                        <li>📊 Observability as a core pillar, not an afterthought</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="page" id="article_page2">
+                <header>
+                    <h2>🧩 Projects</h2>
+                    <p class="subtitle">What I really build</p>
+                </header>
+
+                <article>
+                    <div class="projects">
+                        <div class="project-card">
+                            <h4>⚙️ Backend APIs</h4>
+                            <p>
+                                REST and asynchronous APIs designed with scalability,
+                                versioning, and security in mind.
+                            </p>
+                        </div>
+
+                        <div class="project-card">
+                            <h4>📈 Observability</h4>
+                            <p>
+                                Business-oriented dashboards and alerting using
+                                Grafana and CloudWatch.
+                            </p>
+                        </div>
+                            <div class="project-card">
+                            <h4>🏗️ Infrastructure as Code</h4>
+                            <p>
+                                Infrastructure provisioning and standardization
+                                using Terraform.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="page" id="article_page3">
+                <header>
+                    <h2>👨‍💻 About Me</h2>
+                    <p class="subtitle">A summary of my journey</p>
+                </header>
+
+                <article>
+                    <p>
+                        <h3>🌍 1 year as an International Backend Developer at KWAN</h3>
+                        <ul>
+                            <li>Develop and maintain backend services using Java in distributed system environments</li>
+                            <li>Work with cloud-based architectures, leveraging AWS services to support scalable applications</li>
+                            <li>Contribute to system reliability and performance through monitoring and observability practices</li>
+                            <li>Collaborate with cross-functional and distributed teams in a fully remote setup</li>
+                            <li>Support continuous improvement initiatives focused on code quality, stability, and maintainability</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <h3>🔥 4 years as a Backend Developer at Zup</h3>
+                        <ul>
+                            <li>Maintained and evolved Java backend services handling high-volume traffic</li>
+                            <li>Modernized legacy applications to support cloud migration strategies</li>
+                            <li>Worked with containerized environments and AWS services</li>
+                            <li>Implemented monitoring, dashboards, and alerting for distributed systems</li>
+                            <li>Contributed to infrastructure cost reduction through cloud optimization initiatives</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <h3>🌱 1 year as a Frontend Developer Intern</h3>
+                        <ul>
+                            <li>Developed automation tools in Python to support marketing and social media operations</li>
+                            <li>Built a system to manage and track Instagram and Facebook follower growth</li>
+                            <li>Created internal tools such as a client document management system</li>
+                            <li>Improved operational efficiency by enabling sales teams to quickly access and manage client data</li>
+                            <li>Collaborated with non-technical teams to translate business needs into technical solutions</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        Experienced in high-demand technical environments,
+                        international collaboration, and mission-critical systems.
+                    </p>
+                </article>
+            </section>
+
+            <section class="page" id="article_page4">
+                <header>
+                    <h2>📬 Contact Me</h2>
+                    <p class="subtitle">Let's talk!</p>
+                </header>
+
+                <article class="contact">
+                    <p>💼 LinkedIn:<a href="https://linkedin.com/in/walteralleyz" target="_blank">walteralleyz</a></p>
+                    <p>🚀 Open to backend, cloud, and architecture challenges.</p>
+                </article>
+            </section>
+        </main>
     </div>
-    <footer></footer>
+    <footer>
+        <p>Created with 💗 by Walter Alleyz - 2026</p>
+    </footer>
     <script>
         function main() {
-            loadFooter();
-        }
-
-        function loadFooter() {
-            document.getElementsByTagName("footer")[0].innerHTML = `
-                <p>
-                    Created with 💗 at some random Weekend by 
-                    <a href="https://linkedin.com/in/walteralleyz" target="_blank">Walter</a> 
-                    <pre>${new Date().getFullYear()}</pre>
-                </p>`;
+            console.log('OMG! You\'re a hacker');
         }
 
         function changePage(el) {
-            const baseId = "article";
+            const baseId = 'article';
             const page = document.getElementById(`${baseId}_${el.id}`);
-            const visible = document.getElementsByClassName("visible");
+            const visible = document.getElementsByClassName('visible');
 
-            visible[0].classList.remove("visible");
-            page.classList.add("visible");
+            visible[0].classList.remove('visible');
+            page.classList.add('visible');
         }
 
         main();
